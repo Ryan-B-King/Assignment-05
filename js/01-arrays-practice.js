@@ -181,8 +181,37 @@
 
 //STEP 11
 
+// let movie;
+// let leastFav;
+
+// let movies = [];
+// movies[0] = 'Big';
+// movies[1] = 'Jurassic Park';
+// movies[2] = 'Moulin Rouge';
+// movies[3] = 'Avengers: End Game';
+// movies[4] = 'Star Trek: First Contact';
+// movies[5] = 'To Wong Foo';
+// movies[6] = 'Saving Private Ryan';
+
+// let leastFavMovies = [];
+// leastFavMovies[0] = 'Too Fast Too Furious';
+// leastFavMovies[1] = 'The Lion King (Remake)';
+// leastFavMovies[2] = 'Glitter';
+
+// movies = movies.concat(leastFavMovies);
+
+// movies.sort();
+// movies.reverse();
+
+// window.console.log(movies.shift());
+
+//STEP 12
+
 let movie;
 let leastFav;
+let i;
+
+i = 0;
 
 let movies = [];
 movies[0] = 'Big';
@@ -203,11 +232,17 @@ movies = movies.concat(leastFavMovies);
 movies.sort();
 movies.reverse();
 
-window.console.log(lastMovie);
+for (movie in movies) {
+    window.console.log(String(i), movies[movie]);
+    i++;
+}
+
+window.console.log('');
+
+movie.splice
 
 
 
-//STEP 12
 
 //STEP 13
 
