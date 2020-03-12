@@ -207,44 +207,62 @@
 
 //STEP 12
 
-let movie;
-let leastFav;
-let i;
+// let movie;
+// let leastFav;
+// let i;
 
-i = 0;
+// i = 0;
 
-let movies = [];
-movies[0] = 'Big';
-movies[1] = 'Jurassic Park';
-movies[2] = 'Moulin Rouge';
-movies[3] = 'Avengers: End Game';
-movies[4] = 'Star Trek: First Contact';
-movies[5] = 'To Wong Foo';
-movies[6] = 'Saving Private Ryan';
+// let movies = [];
+// movies[0] = 'Big';
+// movies[1] = 'Jurassic Park';
+// movies[2] = 'Moulin Rouge';
+// movies[3] = 'Avengers: End Game';
+// movies[4] = 'Star Trek: First Contact';
+// movies[5] = 'To Wong Foo';
+// movies[6] = 'Saving Private Ryan';
 
-let leastFavMovies = [];
-leastFavMovies[0] = 'Too Fast Too Furious';
-leastFavMovies[1] = 'The Lion King (Remake)';
-leastFavMovies[2] = 'Glitter';
+// let leastFavMovies = [];
+// leastFavMovies[0] = 'Too Fast Too Furious';
+// leastFavMovies[1] = 'The Lion King (Remake)';
+// leastFavMovies[2] = 'Glitter';
 
-movies = movies.concat(leastFavMovies);
+// movies = movies.concat(leastFavMovies);
 
-movies.sort();
-movies.reverse();
+// movies.sort();
+// movies.reverse();
 
-for (movie in movies) {
-    window.console.log(String(i), movies[movie]);
-    i++;
-}
+// movies.splice(0, 1, 'Forrest Gump');
+// movies.splice(2, 1, 'Neverending Story');
+// movies.splice(7, 1, 'Outbreak');
 
-window.console.log('');
-
-movie.splice
-
-
-
+// for (movie in movies) {
+//     window.console.log(String(i), movies[movie]);
+//     i++;
+// };
 
 //STEP 13
+let employee1;
+let employee2;
+let employees;
+
+employee1 = [];
+employee2 = [];
+employees = employee1.concat(employee2);
+
+employee1['employeeID'] =
+employee1['name'] = 
+employee1['title'] =
+employee1['department'] =
+employee1['employment'] =
+
+employee2['employeeID'] =
+employee2['name'] = 
+employee2['title'] =
+employee2['department'] =
+employee2['employment'] =
+
+window.console.log(employee[1], 'name'); //display 2nd employee name
 
 //STEP 14
 
