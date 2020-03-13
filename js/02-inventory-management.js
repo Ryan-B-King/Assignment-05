@@ -3,6 +3,9 @@ window.addEventListener('load', () => {
     displayMenu();
     inventory = getInventory();
 
+    
+
+
     while(true) {
         command = window.prompt('Enter command');
         if (command !== null) {
@@ -78,35 +81,32 @@ function updateItem() {
 let skuUpdate;
 let newQuanity;
 let inventory = getInventory();
+let i;
 
-skuUpdate = Number(window.prompt('Enter sku to update.'));
+skuUpdate = parseInt(window.prompt('Enter sku to update.'));
 
-    if (skuUpdate === 2233) {
+    for (i = 0; i < inventory.length; i++) {
 
-        window.console.log("You are updating: ", inventory[3].product);
+        window.console.log();
 
-        newQuanity = window.prompt('Current quantity is: ' + inventory[3].quantity + '. \nWhat would you like to update the amount to be?');
+        if (inventory[i].sku === skuUpdate ) {
 
-        inventory[3].quantity = newQuanity;
+            window.console.log("You are updating: ", inventory[i].product);
 
-        window.console.log('Your ' + inventory[3].product + ' has been updated to ' + inventory[3].quantity + '.');
-        break;
-    } else if (skuUpdate === 3223) {
+            newQuanity = window.prompt('Current quantity is: ' + inventory[i].quantity + '. \nWhat would you like to update the amount to be?');
 
-    } else if (skuUpdate === 4824) {
+            inventory[i].quantity = newQuanity;
 
-    } else if (skuUpdate === 6343) {
+            window.console.log('Your ' + inventory[i].product + ' has been updated to ' + inventory[i].quantity + '.');
+            return inventory;
 
-    } else if (skuUpdate === 9382) {
+        } else {
 
-    } else {
-        window.alert('You have entered an invalid sku.');
-        //locks user until valid entry is used
+            window.alert('You have entered an invalid sku.');
+            //locks user until valid entry is used
+        };
     };
-
 };
-
-
 
 
 // function view(inventory) {
