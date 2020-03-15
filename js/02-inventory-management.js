@@ -57,21 +57,18 @@ function updateItem(currentInventory) {
     'use strict';
     let skuUpdate;
     let newQuanity;
-    let i;
 
     skuUpdate = parseInt(window.prompt('Enter sku to update.'));
 
-    for (i = 0; i < currentInventory.length; i++) {
-        if (currentInventory[i].sku === skuUpdate ) {
-            newQuanity = window.prompt('Current quantity for ' + currentInventory[i].product + ' is: ' + currentInventory[i].quantity + '. \nWhat would you like the updated amount to be?');
-            currentInventory[i].quantity = newQuanity;
-
-            localStorage.setItem(currentInventory[i].product.toString(), currentInventory[i].quantity.toString());
-
-            window.console.log('Your ' + currentInventory[i].product + ' has been updated to ' + currentInventory[i].quantity + '.');
+    currentInventory.forEach ((currentInventory) => {
+        if(currentInventory.sku === skuUpdate) {
+            newQuanity = window.prompt('Current quantity for ' + currentInventory.product + ' is: ' + currentInventory.quantity + '. \nWhat would you like the updated amount to be?');
+            currentInventory.quantity = newQuanity;
+            localStorage.setItem(currentInventory.product.toString(), currentInventory.quantity.toString());
+            window.console.log(currentInventory.product + ' has been updated to ' + currentInventory.quantity + '.');
             return currentInventory;
         };
-    };
+    });
 };
 
 function getStorage(currentInventory) {
@@ -84,27 +81,16 @@ function getStorage(currentInventory) {
         key = localStorage.key(i);
         value = localStorage.getItem(key);
 
-        window.console.log("Inside FOR LS  " + key, value);
+        currentInventory.forEach ((currentInventory) => {
+            if (currentInventory.product === key) {
 
-        for (i = 0; i < currentInventory.length; i++) {
-
-            window.console.log("Inside FOR CI");
-            window.console.log(currentInventory[i]);
-
-            if (currentInventory[i].product === key) {
-
-                window.console.log("Inside IF CI:  " + currentInventory[i]);
-
-                currentInventory[i].quantity = parseInt(value);
+                currentInventory.quantity = parseInt(value);
     
-                window.console.log("Updated Values: " + currentInventory[i].product);
-
+                // window.console.log("Retrieved Saved Values for: " + currentInventory.product);
             };
-            
-        };
-        return currentInventory;
+        });
     };
- 
+    return currentInventory;
 
 };
 
@@ -118,7 +104,6 @@ window.addEventListener('load', () => {
     startingInventory = getInventory();
     currentInventory = startingInventory;
     getStorage(currentInventory);
-
 
     while(true) {
         command = window.prompt('Enter command');
