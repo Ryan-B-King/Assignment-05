@@ -1,3 +1,4 @@
+// Function to view current inventory
 function view(inventory) {
     'use strict';
     let i;
@@ -9,6 +10,7 @@ function view(inventory) {
     };
 };
 
+// Function initializes starting inventory
 function getInventory() {
     'use strict';
     const hat = [], socks = [], shirt = [], jeans = [], jacket = [];
@@ -43,6 +45,7 @@ function getInventory() {
     return inventory;
 };
 
+// Function displays user menu
 function displayMenu() {
     'use strict';
     window.console.log('');
@@ -53,6 +56,7 @@ function displayMenu() {
     window.console.log('');
 };
 
+// Function updates quantity indicated by user
 function updateItem(currentInventory) {
     'use strict';
     let skuUpdate;
@@ -71,6 +75,7 @@ function updateItem(currentInventory) {
     });
 };
 
+// Function pulls any saved memory from localStorage and updates inventory
 function getStorage(currentInventory) {
     'use strict';
     let i;
@@ -83,17 +88,14 @@ function getStorage(currentInventory) {
 
         currentInventory.forEach ((currentInventory) => {
             if (currentInventory.product === key) {
-
                 currentInventory.quantity = parseInt(value);
-    
-                // window.console.log("Retrieved Saved Values for: " + currentInventory.product);
             };
         });
     };
     return currentInventory;
-
 };
 
+// Function loads JS after webpage and initializes inventory for user to update as needed.
 window.addEventListener('load', () => {
     'use strict';
     let currentInventory
