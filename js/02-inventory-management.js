@@ -63,43 +63,62 @@ function updateItem(currentInventory) {
 
     for (i = 0; i < currentInventory.length; i++) {
         if (currentInventory[i].sku === skuUpdate ) {
-            window.console.log("You are updating: ", currentInventory[i].product);
             newQuanity = window.prompt('Current quantity for ' + currentInventory[i].product + ' is: ' + currentInventory[i].quantity + '. \nWhat would you like the updated amount to be?');
             currentInventory[i].quantity = newQuanity;
+
+            localStorage.setItem(currentInventory[i].product.toString(), currentInventory[i].quantity.toString());
+
             window.console.log('Your ' + currentInventory[i].product + ' has been updated to ' + currentInventory[i].quantity + '.');
             return currentInventory;
         };
     };
 };
 
-// function getStorage(sessionStorage) {
-//     'use strict';
-//     let i;
+function getStorage(currentInventory) {
+    'use strict';
+    let i;
+    let key;
+    let value;
 
-//     for (i = 0; i < sessionStorage.length; i++) {
+    for (i = 0; i < localStorage.length; i++) {
+        key = localStorage.key(i);
+        value = localStorage.getItem(key);
 
-//     };
+        window.console.log("Inside FOR LS  " + key, value);
+
+        for (i = 0; i < currentInventory.length; i++) {
+
+            window.console.log("Inside FOR CI");
+            window.console.log(currentInventory[i]);
+
+            if (currentInventory[i].product === key) {
+
+                window.console.log("Inside IF CI:  " + currentInventory[i]);
+
+                currentInventory[i].quantity = parseInt(value);
     
-    
-//     localStorage.getItem() || "";
-//         //If the storage object contains tasks
-//         //Repopulate the tasks array
-//     if (storage.length > 0) {
-//         tasks = storage.split("|");
-//     };
+                window.console.log("Updated Values: " + currentInventory[i].product);
 
-// };
+            };
+            
+        };
+        return currentInventory;
+    };
+ 
 
-// };
+};
 
 window.addEventListener('load', () => {
     'use strict';
-    let currentInventory, command, startingInventory; 
+    let currentInventory
+    let command
+    let startingInventory; 
+
     displayMenu();
     startingInventory = getInventory();
     currentInventory = startingInventory;
+    getStorage(currentInventory);
 
-    currentInventory = getStorage();
 
     while(true) {
         command = window.prompt('Enter command');
